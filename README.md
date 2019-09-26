@@ -1,9 +1,9 @@
 # 2DWebGame
-2D web game project
+2D web game project (temporary name)
 
 Team Members 
 
-Callum Finlayson | @CallumFinlayson
-Henry McFarland | @hmcfarland2025
-Tegan Friedenthal | @teganstorm
-Cameron Bones | @Cameron-Bone
+Callum Finlayson | @CallumFinlayson  
+Henry McFarland | @hmcfarland2025  
+Tegan Friedenthal | @teganstorm  
+Cameron Bone | @Cameron-Bone  
