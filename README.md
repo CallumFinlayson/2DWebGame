@@ -1,6 +1,6 @@
 # 2DCTF
-2DCFT is a 2D multiplayer capture the flag game.
-Team0
+2DCFT is a 2D multiplayer capture the flag game.  
+Created and designed by Team0
 
 Team Members 
 
