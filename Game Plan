@@ -1,1 +1,9 @@
+2DCFT is a 2D multiplayer capture the flag game.
 
+Using a side-scrolling map, with different platforms to jump on (similar to Mario games) and 3 layers of blocks, so you can hide behind or in front of them while travlling accross the map.
+
+Main Mechanics:
+-Movement
+-Attack of some sort to reset enemy player(s)
+-Grabbing/Dropping the flag
+-Score counting system.
