@@ -1,4 +1,5 @@
-# 2DWebGame
+# 2DCTF
+2DCFT is a 2D multiplayer capture the flag game.
 Team0
 
 Team Members 
