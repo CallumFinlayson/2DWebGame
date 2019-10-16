@@ -37,3 +37,33 @@ var gamePlayers = {
     */
   }
 }
+var gameCanvas = {
+  canvas : document.createElement("canvas");
+  start: function(){ //implementing gameCanvas.start() 
+    this.canvas.width = 1000;
+    this.canvas.height = 400;
+  }
+}
+
+window.addEventListener ("keydown", moveSoemthing, false);
+
+function movePlayer(e) {
+  switch(e.keyCode) {
+    case 37: //Left arrow key
+    break;
+    case 38: //Up arrow key
+    break;
+    case 39: //Right arrow key
+    break;
+    case 40: //Down arrow key
+    break;
+  }
+}
+
+
+
+<script>
+
+//button
+</body>
+</html>
