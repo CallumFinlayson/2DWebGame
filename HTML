@@ -1,9 +1,39 @@
-<! DOCTYPE html >
+<! DOCTYPE html>
 <html>
-  <head>
-   <title> This is the title of the page. <?title>
-  </head>
-  <body bgcolor= "gray">
-    <p>This is a paragraph. </p>
-  </body>
-</html>
+<body>
+
+<style>
+canvas {
+    background-color: #B0C4DE; //Background colour for the web page
+}
+
+</style>
+</head>
+<body onload="gameStart()">
+<head>
+<script>
+
+/* Variable names for game functions */
+var teamPoints; 
+
+function gameStart(){
+  gamePlayers.create();
+  
+  gameCanvas.start(); //create the canvas game area using the function created below
+}
+
+var gamePlayers = {
+  create: function(){
+    /*
+    var randomColour;
+    var randomColours = new Array();
+    randomColours[0] = "red";
+    randomColours[1] = "orange";
+    randomColours[2] = "yellow";
+    randomColours[3] = "green";
+    randomColours[4] = "blue";
+    randomColours[5]
+    player = new component(50, 50, randomColour, 10, 120); 
+    */
+  }
+}
