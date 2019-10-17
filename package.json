@@ -1,0 +1,23 @@
+{
+  "name": "2dwebgame",
+  "version": "1.0.0",
+  "description": "a 2d capture the flag game",
+  "main": "index.js",
+  "dependencies": {
+    "materialize-css": "^1.0.0-rc.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CallumFinlayson/2DWebGame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CallumFinlayson/2DWebGame/issues"
+  },
+  "homepage": "https://github.com/CallumFinlayson/2DWebGame#readme"
+}
