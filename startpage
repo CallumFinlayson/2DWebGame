@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #B0C4DE;
+}
+}
+</style>
+</head>
+<body onload="load()">
+<script>
+
+
+
+function load() {
+    makeCanvas.start();
+}
+
+var makeCanvas = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 960;
+        this.canvas.height = 640;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.canvas.addEventListener('click', startGame() { }, false);
+
+
+        //text
+        var text4 = 'CAPTURE THE FLAG!';
+        var text3 = 'up arrow to jump';
+        var text2 = 'left right arrows to move left and right';
+        var text1 = 'space to freeze other players';
+        var text0 = 'CLICK START TO START GAME'
+        this.context.font = '50px Arial';
+        this.context.fillStyle = 'black';
+        var x = 50;
+        var y = 580;
+        var y1 = 530;
+        var y2 = 480;
+        var y3 = 430;
+        var y4 = 100;
+        this.context.fillText(text0, x, y);
+        this.context.fillText(text1, x, y1);
+        this.context.fillText(text2, x, y2);
+        this.context.fillText(text3, x, y3);
+        this.context.fillText(text4, x, y4);
+
+        //start
+        var startButton = '!!START!!'
+        var startX = 430;
+        var startY = 270;
+        this.context.fillText(startButton, startX, startY);
+        
+    }
+}
+
+function start() {
+
+}
+</script>
+</body>
+</html>
