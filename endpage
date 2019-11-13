@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button {
+            background-color: red;
+            color: black;
+            border: 2px solid red;
+        }
+        button:hover {
+            background-color: white;
+            color: red;
+        }
+    </style>
+</head>
+<body style= "background-color: #B0C4DE";>
+    <script>
+        
+        var team; // x or y
+        var xScore;
+        var yScore;
+        var text;
+
+        function restart() {
+            //start new game
+        }
+        
+        function text() {
+            if (team == x && xScore > yScore) {
+                text = "YOUR TEAM WINS, well done!";
+            } else if (team == x && xScore < yScore) {
+                text = "YOUR TEAM LOST, better luck next time!"
+            } else if (xScore == yScore) {
+                text = "TIE, everyone is a winner!!"
+            } else if (team == y && yScore > xScore) {
+                text = "YOUR TEAM WINS, well done!";
+            } else if (team == y && yScore < xScore) {
+                text = "YOUR TEAM LOST, better luck next time!"
+            }
+        }
+    
+    </script>
+    <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 70px;">CAPTURE THE FLAG!</h1>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 30px;">text()</p>
+    <button onmousedown="restart()"; style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">START NEW GAME</button>
+    <p></p>
+    <button onmousedown="restart()"; style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">Log Out</button>
+</body>
+</html>
