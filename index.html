@@ -3,14 +3,23 @@
     <head>
         <title>Capture The Glag Game!</title> 
         <style>
-            canvas {
+            #canvas {
                 border: 1px solid black;
                 background-color: whitesmoke;
+            }
+            #timer {
+                font-size: 30px;
+                text-align: right;
+                font-family: Arial, Helvetica, sans-serif;
+                width: 200px;
+                height: 50px;
             }            
         </style>
     </head>
     <body style= "background-color: #B0C4DE";>
-        <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">Remaining Time: 300 seconds</p>
+        <div id="timer">
+                300s
+        </div>
         <canvas id="canvas" ></canvas>
         <script>
 
@@ -34,7 +43,6 @@
             var keys = [];
             var gravity = 0.5;
             var jumping = false;
-            var timer = 300;
 
             //ctx.fillRect(px, py, pwidth, pheight);
 
@@ -86,9 +94,26 @@
                     platforms.start();
                 }
             }
+
+            var time = 300;
+            function timer() {
+                setTimeout(function(){
+                    var timerDiv = document.getElementById("timer");
+                    time = time-1;
+                    timerDiv.innerHTML = time;
+                    //timer();
+                }, 1000)
+            }
+
+            function checkTime() {
+                if (time <= 0) {
+                    //end game
+                }
+            }
             
-            //game function and making the platforms
+            //game functionallity
             function update() {
+                timer();
 
                 // check keys
                 if (keys[38]) {
