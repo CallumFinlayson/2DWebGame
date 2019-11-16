@@ -32,7 +32,9 @@
             canvas.width = width;
             canvas.height = height;
             var keys = [];
-            var gravity = 0.2;
+            var gravity = 0.5;
+            var jumping = false;
+            var timer = 300;
 
             //ctx.fillRect(px, py, pwidth, pheight);
 
@@ -72,10 +74,11 @@
                         px = width- pwidth;
                     } else if (px <= 0) {         
                         px = 0;     
-                    }    
-                    if(px >= height-pheight){
+                    } else if(py >= height-pheight){
                         py = height - pheight;
-                    //    player.jumping = false;
+                        player.jumping = false;
+                    } else if (py <=0){
+                        py = 0;
                     }
                     ctx.clearRect(0,0,width,height);
                     ctx.fillStyle = "red";
@@ -86,13 +89,14 @@
             
             //game function and making the platforms
             function update() {
-                
+
                 // check keys
                 if (keys[38]) {
                     // up arrow
                     py = py -1;
                     pwidth = 5;
                     pheight = 5;
+                    jumping = true;
                 }
                 if (keys[39]) {
                     // right arrow
@@ -105,6 +109,10 @@
                     px = px -1;
                     pwidth = 5;
                     pheight = 5;
+                }
+
+                if (jumping) {
+                    py = py + gravity;
                 }
 
 
