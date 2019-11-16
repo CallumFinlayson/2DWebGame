@@ -1,83 +1,69 @@
-<head>
-
-</head>
-<body>
-<nav>
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-  </div>
-</nav>
-
-</body>
-<footer>
-
-</footer>
-
 <!DOCTYPE html>
 <html>
+    <head>
+            
+        <style>
+            canvas {
+                border: 1px solid black;
+                background-color: whitesmoke;
+            }            
+        </style>
+    </head>
+    <body style= "background-color: #B0C4DE";>
+        <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">Remaining Time: 300 seconds</p>
+        <canvas id="canvas" ></canvas>
+        <script>
+    
+            //variables
+            
+            var canvas = document.getElementById("canvas"),
+                ctx = canvas.getContext("2d"),
+                width = 960,
+                height = 640;
+            canvas.width = width;
+            canvas.height = height;
+
+            //making the platforms
+            //red team starting point and red flag start point
+            ctx.beginPath();
+            ctx.fillStyle = "red";
+            ctx.fillRect(0,200,100,10);
+            ctx.closePath();
+            //blue team starting point and blue flag start point
+            ctx.beginPath();
+            ctx.fillStyle = "blue";
+            ctx.fillRect(860,200,100,10);
+            ctx.closePath();
 
 
+            ctx.fillStyle = "black";
+            ctx.fillRect(140,300,75,10);
+            ctx.closePath();
+            ctx.fillStyle = "black";
+            ctx.fillRect(745,300,75,10);
+            ctx.closePath();
 
-<style>
-*{padding: 0; margin: 0;}
-canvas {background: rgb(235, 235, 235); display: block; margin: 0 auto;}
-</style>
-
-</body>
-
-<canvas id="GameCanvas" width = "1480" height = "720"> </canvas>
-
-<script>
-
-var z = document.getElementById("GameCanvas");
-var ctx = z.getContext("2d");
-ctx.beginPath();
-ctx.rect(0, 360, 150, 14);
-ctx.fillStyle = "blue";
-ctx.fill();
-ctx.closePath();
-
-var z = document.getElementById("GameCanvas");
-var ctx = z.getContext("2d");
-ctx.beginPath();
-ctx.rect(1330, 360, 150, 14);
-ctx.fillStyle = "red";
-ctx.fill();
-ctx.closePath();
-
-var z = document.getElementById("GameCanvas");
-var ctx = z.getContext("2d");
-ctx.beginPath();
-ctx.rect(1030, 270, 150, 14);
-ctx.fillStyle = "black";
-ctx.fill();
-ctx.closePath();
-
-var z = document.getElementById("GameCanvas");
-var ctx = z.getContext("2d");
-ctx.beginPath();
-ctx.rect(300, 270, 150, 14);
-ctx.fillStyle = "black";
-ctx.fill();
-ctx.closePath();
-
-var z = document.getElementById("GameCanvas");
-var ctx = z.getContext("2d");
-ctx.beginPath();
-ctx.rect(300, 270, 150, 14);
-ctx.fillStyle = "black";
-ctx.fill();
-ctx.closePath();
-
-</script>
-
-
-
-</body
-
+            function player(width, height, colour, x, y) {
+                //this.score
+                this.width = width;
+                this.height = height;
+                this.gravity = 0;
+                this.gravitySpeed = 0;
+            }
+                
+                
+                
+                
+                
+                
+                
+        </script>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">My Team Score: </p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">Opponent Team Score: </p>
+    <p> </p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Game Instructions:</p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">up arrow to jump</p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">left right arrows to move left and right</p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">space to freeze other players</p>
+    </body>
 </html>
