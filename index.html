@@ -9,16 +9,28 @@
             }
             #timer {
                 font-size: 30px;
-                text-align: right;
+                text-align: left;
+                color: red;
+                text-emphasis: bold;
                 font-family: Arial, Helvetica, sans-serif;
-                width: 200px;
-                height: 50px;
-            }            
+                width: 100px;
+                height: 30px;
+                background-color: black;
+            }      
+            #timeText {
+                font-size: 10px;
+                text-align: left;
+                color: black;
+                text-emphasis: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                height: 10px;
+            }      
         </style>
     </head>
     <body style= "background-color: #B0C4DE";>
+        <p id="timeText">Miliseconds left in game: </p>
         <div id="timer">
-                300s
+                300000
         </div>
         <canvas id="canvas" ></canvas>
         <script>
@@ -32,8 +44,8 @@
             var player;
             var pwidth = 5;
             var pheight = 5;
-            var px = 6;
-            var py = 240;
+            var px = 26;
+            var py = 234;
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
             var width = 960;
@@ -41,7 +53,7 @@
             canvas.width = width;
             canvas.height = height;
             var keys = [];
-            var gravity = 0.5;
+            var gravity = 1;
             var jumping = false;
 
             //ctx.fillRect(px, py, pwidth, pheight);
@@ -63,15 +75,15 @@
 
                     //Making the platforms
                     ctx.fillStyle = "black";
-                    ctx.fillRect(140,340,75,10);
-                    ctx.fillRect(745,340,75,10);
-                    ctx.fillRect(0,540,75,10);
-                    ctx.fillRect(885,540,75,10);
-                    ctx.fillRect(442.5,490,75,10);
-                    ctx.fillRect(442.5,340,75,10);
-                    ctx.fillRect(140,440,75,10);
-                    ctx.fillRect(745,440,75,10);
-                    ctx.fillRect(291.25,390,75,10);
+                    ctx.fillRect(140,340,75,10); 
+                    ctx.fillRect(745,340,75,10); 
+                    ctx.fillRect(0,540,75,10); 
+                    ctx.fillRect(885,540,75,10); 
+                    ctx.fillRect(442.5,490,75,10); 
+                    ctx.fillRect(442.5,340,75,10); 
+                    ctx.fillRect(140,440,75,10); 
+                    ctx.fillRect(745,440,75,10); 
+                    ctx.fillRect(291.25,390,75,10); 
                     ctx.fillRect(593.75,390,75,10);
                 }
             }
@@ -95,7 +107,7 @@
                 }
             }
 
-            var time = 300;
+            var time = 300000;
             function timer() {
                 setTimeout(function(){
                     var timerDiv = document.getElementById("timer");
@@ -110,6 +122,60 @@
                     //end game
                 }
             }
+
+            function playerOnPlatform() {
+                //red base
+                if (((0>=px)&&(px<=100))&&((234<=py)&&(py>=250))) { //ctx.fillRect(0,240,100,10);
+                    jumping = false;
+                    py = 234;
+                }
+                //blue base
+                if (((860>=px)&&(px<=960))&&((234<=py)&&(py>=250))) { //ctx.fillRect(860,240,100,10);
+                    jumping = false;
+                    py = 234;
+                }
+                //black platforms
+                if (((140>=px)&&(px<=215))&&((334<=py)&&(py>=350))) { //ctx.fillRect(140,340,75,10);
+                    jumping = false;
+                    py = 334;
+                }
+                if (((745>=px)&&(px<=820))&&((334<=py)&&(py>=350))) { //ctx.fillRect(745,340,75,10);
+                    jumping = false;
+                    py = 334;
+                }
+                if (((0>=px)&&(px<=75))&&((534<=py)&&(py>=550))) { //ctx.fillRect(0,540,75,10);
+                    jumping = false;
+                    py = 534;
+                }
+                if (((885>=px)&&(px<=960))&&((534<=py)&&(py>=550))) { //ctx.fillRect(885,540,75,10);
+                    jumping = false;
+                    py = 534;
+                }
+                if (((442.5>=px)&&(px<=517.5))&&((484<=py)&&(py>=500))) { //ctx.fillRect(442.5,490,75,10);
+                    jumping = false;
+                    py = 484;
+                }
+                if (((442.5>=px)&&(px<=517.5))&&((334<=py)&&(py>=350))) { //ctx.fillRect(442.5,340,75,10);
+                    jumping = false;
+                    py = 334;
+                }
+                if (((140>=px)&&(px<=215))&&((434<=py)&&(py>=450))) { //ctx.fillRect(140,440,75,10);
+                    jumping = false;
+                    py = 434;
+                }
+                if (((745>=px)&&(px<=820))&&((434<=py)&&(py>=450))) { //ctx.fillRect(745,440,75,10);
+                    jumping = false;
+                    py = 434;
+                }
+                if (((291.25>=px)&&(px<=366.25))&&((384<=py)&&(py>=400))) { //ctx.fillRect(291.25,390,75,10);
+                    jumping = false;
+                    py = 384;
+                }
+                if (((593.75>=px)&&(px<=668.75))&&((384<=py)&&(py>=400))) { //ctx.fillRect(593.75,390,75,10);
+                    jumping = false;
+                    py = 384;
+                } 
+            }
             
             //game functionallity
             function update() {
@@ -118,30 +184,51 @@
                 // check keys
                 if (keys[38]) {
                     // up arrow
-                    py = py -1;
+                    py = py -3;
                     pwidth = 5;
                     pheight = 5;
                     jumping = true;
+                    playerOnPlatform();
                 }
                 if (keys[39]) {
                     // right arrow
                     px = px + 1;
                     pwidth = 5;
                     pheight = 5;
+                    jumping = true;
+                    playerOnPlatform();
                 }                              
                 if (keys[37]) { 
                     //left arrow
                     px = px -1;
                     pwidth = 5;
                     pheight = 5;
+                    jumping = true;
+                    playerOnPlatform();
                 }
 
                 if (jumping) {
+                    playerOnPlatform();
                     py = py + gravity;
                 }
 
+                if (px >= width-pwidth) {
+                    px = width- pwidth;
+                } else if (px <= 0) {         
+                    px = 0;     
+                } else if(py >= height-pheight){
+                    py = height - pheight;
+                    player.jumping = false;
+                } else if (py <=0){
+                    py = 0;
+                }
 
-                updatePlayer.start();
+                playerOnPlatform();
+
+                ctx.clearRect(0,0,width,height);
+                ctx.fillStyle = "red";
+                ctx.fillRect(px, py, pwidth, pheight);
+                platforms.start();
 
                 requestAnimationFrame(update);
             }
