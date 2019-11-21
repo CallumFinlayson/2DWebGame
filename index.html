@@ -41,11 +41,11 @@
             })();
     
             //variables
-            var player;
-            var pwidth = 5;
-            var pheight = 5;
-            var px = 26;
-            var py = 234;
+            //var player;
+            //var pwidth = 5;
+            //var pheight = 5;
+            //var px = 26;
+            //var py = 234;
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
             var width = 960;
@@ -55,7 +55,55 @@
             var keys = [];
             var gravity = 1;
             var jumping = false;
+            var xTeamSize;
+            var yTeamSize;
+            var isPlayerX = false;
+            var isPlayerY = false;
+            var playerColour;
+            var Xcolour = "red";
+            var Ycolour = "blue";
+            
+            function createPlayers() {
+                if ((xTeamSize < 3) && (xTeamSize != 3)) {
+                    //The player will be xTeam
+                    xTeamSize = xTeamSize + 1;
+                    isPlayerX = true;
+                    createPlayer();
 
+                } else if ((yTeamSize < 3) && (yTeamSize != 3)) {
+                    //The player will be yTeam
+                    yTeamSize = yTeamSize + 1;
+                    isPlayerY = true;
+                    createPlayer();
+
+
+                } else if ((xTeamSize == 3) && (yTeamSize == 3)) {
+                    //The teams are full stop calling this function and adding players
+                    update();
+                }
+            }
+
+            function createPlayer() {
+                if (isPlayerX) {
+                    playerColour = Xcolour;
+                    var player;
+                    var pwidth = 5;
+                    var pheight = 5;
+                    var px = 26;
+                    var py = 234;
+
+                } else if (isPlayerY) {
+                    playerColour = Ycolour;
+                    var player;
+                    var pwidth = 5;
+                    var pheight = 5;
+                    var px = 26;
+                    var py = 929;
+                }
+                update();
+            }
+
+            
             var platforms = {
                 start : function() {
                     //making the platforms
@@ -99,7 +147,7 @@
                         py = 0;
                     } 
                     ctx.clearRect(0,0,width,height);
-                    ctx.fillStyle = "red";
+                    ctx.fillStyle = playerColour;
                     ctx.fillRect(px, py, pwidth, pheight);
                     platforms.start();
                 }
@@ -240,7 +288,7 @@
             });    
                 
             window.addEventListener("load", function(){
-                update();
+                createPlayers();
             });   
                 
         </script>
