@@ -56,8 +56,6 @@
             var gravity = 1;
             var jumping = false;
 
-            //ctx.fillRect(px, py, pwidth, pheight);
-
             var platforms = {
                 start : function() {
                     //making the platforms
@@ -99,7 +97,7 @@
                         player.jumping = false;
                     } else if (py <=0){
                         py = 0;
-                    }
+                    } 
                     ctx.clearRect(0,0,width,height);
                     ctx.fillStyle = "red";
                     ctx.fillRect(px, py, pwidth, pheight);
@@ -125,53 +123,53 @@
 
             function playerOnPlatform() {
                 //red base
-                if (((0>=px)&&(px<=100))&&((234<=py)&&(py>=250))) { //ctx.fillRect(0,240,100,10);
+                if (((px>=0)&&(px<=100))&&((py>=234)&&(py<=250))) { //ctx.fillRect(0,240,100,10);
                     jumping = false;
                     py = 234;
                 }
                 //blue base
-                if (((860>=px)&&(px<=960))&&((234<=py)&&(py>=250))) { //ctx.fillRect(860,240,100,10);
+                if (((px>=860)&&(px<=960))&&((py>=234)&&(py<=250))) { //ctx.fillRect(860,240,100,10);
                     jumping = false;
                     py = 234;
                 }
                 //black platforms
-                if (((140>=px)&&(px<=215))&&((334<=py)&&(py>=350))) { //ctx.fillRect(140,340,75,10);
+                if (((px>=140)&&(px<=215))&&((py>=334)&&(py<=350))) { //ctx.fillRect(140,340,75,10);
                     jumping = false;
                     py = 334;
                 }
-                if (((745>=px)&&(px<=820))&&((334<=py)&&(py>=350))) { //ctx.fillRect(745,340,75,10);
+                if (((px>=745)&&(px<=820))&&((py>=334)&&(py<=350))) { //ctx.fillRect(745,340,75,10);
                     jumping = false;
                     py = 334;
                 }
-                if (((0>=px)&&(px<=75))&&((534<=py)&&(py>=550))) { //ctx.fillRect(0,540,75,10);
+                if (((px>=0)&&(px<=75))&&((py>=534)&&(py<=550))) { //ctx.fillRect(0,540,75,10);
                     jumping = false;
                     py = 534;
                 }
-                if (((885>=px)&&(px<=960))&&((534<=py)&&(py>=550))) { //ctx.fillRect(885,540,75,10);
+                if (((px>=885)&&(px<=960))&&((py>=534)&&(py<=550))) { //ctx.fillRect(885,540,75,10);
                     jumping = false;
                     py = 534;
                 }
-                if (((442.5>=px)&&(px<=517.5))&&((484<=py)&&(py>=500))) { //ctx.fillRect(442.5,490,75,10);
+                if (((px>=442.5)&&(px<=517.5))&&((py>=484)&&(py<=500))) { //ctx.fillRect(442.5,490,75,10);
                     jumping = false;
                     py = 484;
                 }
-                if (((442.5>=px)&&(px<=517.5))&&((334<=py)&&(py>=350))) { //ctx.fillRect(442.5,340,75,10);
+                if (((px>=442.5)&&(px<=517.5))&&((py>=334)&&(py<=350))) { //ctx.fillRect(442.5,340,75,10);
                     jumping = false;
                     py = 334;
                 }
-                if (((140>=px)&&(px<=215))&&((434<=py)&&(py>=450))) { //ctx.fillRect(140,440,75,10);
+                if (((px>=140)&&(px<=215))&&((py>=434)&&(py<=450))) { //ctx.fillRect(140,440,75,10);
                     jumping = false;
                     py = 434;
                 }
-                if (((745>=px)&&(px<=820))&&((434<=py)&&(py>=450))) { //ctx.fillRect(745,440,75,10);
+                if (((px>=745)&&(px<=820))&&((py>=434)&&(py<=450))) { //ctx.fillRect(745,440,75,10);
                     jumping = false;
                     py = 434;
                 }
-                if (((291.25>=px)&&(px<=366.25))&&((384<=py)&&(py>=400))) { //ctx.fillRect(291.25,390,75,10);
+                if (((px>=291.25)&&(px<=366.25))&&((py>=384)&&(py<=400))) { //ctx.fillRect(291.25,390,75,10);
                     jumping = false;
                     py = 384;
                 }
-                if (((593.75>=px)&&(px<=668.75))&&((384<=py)&&(py>=400))) { //ctx.fillRect(593.75,390,75,10);
+                if (((px>=593.75)&&(px<=668.75))&&((py>=384)&&(py<=400))) { //ctx.fillRect(593.75,390,75,10);
                     jumping = false;
                     py = 384;
                 } 
@@ -184,7 +182,7 @@
                 // check keys
                 if (keys[38]) {
                     // up arrow
-                    py = py -3;
+                    py = py -4;
                     pwidth = 5;
                     pheight = 5;
                     jumping = true;
