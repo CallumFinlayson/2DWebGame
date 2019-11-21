@@ -65,7 +65,8 @@
             var jumping = false;
             var xTeamSize;
             var yTeamSize;
-            var isPlayerX = false;
+            //must be sent to false to begin only true now to test code
+            var isPlayerX = true;
             var isPlayerY = false;
             var playerColour;
             var Xcolour = "red";
@@ -136,9 +137,15 @@
                     ctx.fillRect(745,440,75,10); 
                     ctx.fillRect(291.25,390,75,10); 
                     ctx.fillRect(593.75,390,75,10);
+
+                    //Floor of the canvas 
+                    //return player to start position if they hit this
+                    ctx.fillStyle = "orange";
+                    ctx.fillRect(0,630,960,10);
                 }
             }
 
+            /*
             var updatePlayer = {
                 start : function() {
                     if (px >= width-pwidth) {
@@ -153,9 +160,6 @@
                         } else if (isPlayerY) {
                             py = PlayerYstartY;
                             px = PlayerYstartX;
-                        } else {
-                            px =PlayerXstartX;
-                            py =PlayerXstartY;
                         }
                         
                         //py = height - pheight;
@@ -170,6 +174,7 @@
                     platforms.start();
                 }
             }
+            */
 
             var time = 300000;
             function timer() {
@@ -288,9 +293,15 @@
                     px = width- pwidth;
                 } else if (px <= 0) {         
                     px = 0;     
-                } else if(py >= height-pheight){
-                    py = height - pheight;
-                    player.jumping = false;
+                } else if(((px>=0)&&(px<=960))&&(py>=624)){ //ctx.fillRect(0,630,960,10);
+                    //player.jumping = false;
+                    if (isPlayerX) {
+                        px = PlayerXstartX;
+                        py = PlayerXstartY;
+                    } else if (isPlayerY) {
+                        px = PlayerYstartX;
+                        py = PlayerYstartY;
+                    }
                 } else if (py <=0){
                     py = 0;
                 }
