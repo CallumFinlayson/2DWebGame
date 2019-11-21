@@ -323,6 +323,21 @@
                     Ycolour = "red";
                 }
             }
+          
+            function updateScore() {
+                if (isPlayerX && flagCarryingByX) {
+                    xTeamScore = xTeamScore + 1;
+                    pwidth = 5;
+                    pheight = 5;
+                    colour = "red"
+                } 
+                else if (isPlayerY && flagCarryingByY) {
+                    yTeamScore = yTeamScore + 1;
+                    pwidth = 5;
+                    pheight = 5;
+                    colour = "blue"
+                }
+            }
 
             function jump() {
                 if (onPlatform) {
