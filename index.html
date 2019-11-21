@@ -42,10 +42,14 @@
     
             //variables
             //var player;
-            //var pwidth = 5;
-            //var pheight = 5;
-            //var px = 26;
-            //var py = 234;
+            var pwidth = 5;
+            var pheight = 5;
+            var PlayerXstartX = 26;
+            var PlayerXstartY = 234;
+            var PlayerYstartX = 26;
+            var PlayerYstartY = 929;
+            var px;
+            var py;
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
             var width = 960;
@@ -67,12 +71,14 @@
                 if ((xTeamSize < 3) && (xTeamSize != 3)) {
                     //The player will be xTeam
                     xTeamSize = xTeamSize + 1;
+                    PlayerXstartY = PlayerXstartY + 6;
                     isPlayerX = true;
                     createPlayer();
 
                 } else if ((yTeamSize < 3) && (yTeamSize != 3)) {
                     //The player will be yTeam
                     yTeamSize = yTeamSize + 1;
+                    PlayerYstartY = PlayerYstartY - 6;
                     isPlayerY = true;
                     createPlayer();
 
@@ -86,19 +92,13 @@
             function createPlayer() {
                 if (isPlayerX) {
                     playerColour = Xcolour;
-                    var player;
-                    var pwidth = 5;
-                    var pheight = 5;
-                    var px = 26;
-                    var py = 234;
+                    px = PlayerXstartX;
+                    py = PlayerXstartY;
 
                 } else if (isPlayerY) {
                     playerColour = Ycolour;
-                    var player;
-                    var pwidth = 5;
-                    var pheight = 5;
-                    var px = 26;
-                    var py = 929;
+                    px = PlayerYstartX;
+                    py = PlayerYstartY;
                 }
                 update();
             }
@@ -141,8 +141,16 @@
                     } else if (px <= 0) {         
                         px = 0;     
                     } else if(py >= height-pheight){
+                        if (isPlayerX){
+                            px =PlayerXstartX;
+                            py =PlayerYstartY;
+                        } else if (isPlayerY) {
+                            py = PlayerYstartY;
+                            px = PlayerYstartX;
+                        }
                         py = height - pheight;
                         player.jumping = false;
+                        
                     } else if (py <=0){
                         py = 0;
                     } 
