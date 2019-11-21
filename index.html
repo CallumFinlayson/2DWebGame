@@ -55,13 +55,19 @@
             //
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
+
             var width = 960;
             var height = 640;
+
             canvas.width = width;
             canvas.height = height;
+
             var keys = [];
+
             var gravity = 0.8;
             var jumping = false;
+
+
             var xTeamSize;
             var yTeamSize;
             //must be sent to false to begin only true now to test code
@@ -73,6 +79,8 @@
             var onPlatform = false;
             flagCarryingByX = false;
             flagCarryingByY = false;
+            var playerSpeed;
+            var jumpSpeed = 4;
             /*
             function createPlayers() {
                 if ((xTeamSize < 3) && (xTeamSize != 3)) {
@@ -315,6 +323,13 @@
                     Ycolour = "red";
                 }
             }
+
+            function jump() {
+                if (onPlatform) {
+                    py = py -140;
+                    updatePlayer();
+                }
+            }
             //game functionallity
             function update() {
                 timer();
@@ -322,11 +337,11 @@
                 if (keys[38]) {
                     // up arrow
                     if (onPlatform) {
-                        py = py -140;
-                        updatePlayer();
+                        jump();
                         jumping = true;
-                        //playerOnPlatform();
                     }
+
+                    
                 }
                 if (keys[39]) {
                     // right arrow
@@ -360,6 +375,7 @@
                         px = PlayerYstartX;
                         py = PlayerYstartY;
                     }
+                //The floor is lava
                 } else if(flagCarryingByX || flagCarryingByY){ //ctx.fillRect(0,630,960,10);
                     if (((px>=0)&&(px<=960))&&(py>=599)){
                         if (isPlayerX) {
@@ -368,12 +384,14 @@
                             pwidth = 5;
                             px = PlayerXstartX;
                             py = PlayerXstartY;
+                            Xcolour = "red";
                         } else if (isPlayerY) {
                             flagCarryingByY = false;
                             pheight = 5;
                             pwidth = 5;
                             px = PlayerYstartX;
                             py = PlayerYstartY;
+                            Ycolour = "blue";
                         }
                     }
                 } else if (py <=0){
