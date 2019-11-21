@@ -142,36 +142,7 @@
                     ctx.fillRect(0,630,960,10);
                 }
             }
-            /*
-            var updatePlayer = {
-                start : function() {
-                    if (px >= width-pwidth) {
-                        px = width- pwidth;
-                    } else if (px <= 0) {         
-                        px = 0;     
-                    } else if(py >= height-pheight){
-                        jumping = false;
-                        if (isPlayerX){
-                            px =PlayerXstartX;
-                            py =PlayerXstartY;
-                        } else if (isPlayerY) {
-                            py = PlayerYstartY;
-                            px = PlayerYstartX;
-                        }
-                        
-                        //py = height - pheight;
-                        player.jumping = false;
-                        
-                    } else if (py <=0){
-                        py = 0;
-                    } 
-                    ctx.clearRect(0,0,width,height);
-                    ctx.fillStyle = playerColour;
-                    ctx.fillRect(px, py, pwidth, pheight);
-                    platforms.start();
-                }
-            }
-            */
+            
             var time = 300000;
             function timer() {
                 setTimeout(function(){
@@ -326,7 +297,8 @@
                 }
             }
 
-            function setPlayerSize() {
+            function updatePlayer() {
+                //player size
                 if (isPlayerX) {
                     if (flagCarryingByX) {
                         pwidth = 10;
@@ -341,6 +313,12 @@
                     px = 5;
                     pw = 5
                 }
+                //player colour
+                if (isPlayerX && flagCarryingByX) {
+                    Xcolour = "blue";
+                } else if (isPlayerY && flagCarryingByY) {
+                    Ycolour = "red";
+                }
             }
 
             //game functionallity
@@ -351,7 +329,7 @@
                     // up arrow
                     if (onPlatform) {
                         py = py -140;
-                        setPlayerSize();
+                        updatePlayer();
                         jumping = true;
                         //playerOnPlatform();
                     }
@@ -359,14 +337,14 @@
                 if (keys[39]) {
                     // right arrow
                     px = px + 1;
-                    setPlayerSize();
+                    updatePlayer();
                     jumping = true;
                     playerOnPlatform();
                 }                              
                 if (keys[37]) { 
                     //left arrow
                     px = px -1;
-                    setPlayerSize();
+                    updatePlayer();
                     jumping = true;
                     playerOnPlatform();
                 }
@@ -374,6 +352,8 @@
                     playerOnPlatform();
                     py = py + gravity;
                 }
+              
+                //Staying in the game canvas
                 if (px >= width-pwidth) {
                     px = width- pwidth;
                 } else if (px <= 0) {         
@@ -405,6 +385,7 @@
                 } else if (py <=0){
                     py = 0;
                 }
+                updatePlayer();
                 playerOnPlatform();
                 ctx.clearRect(0,0,width,height);
                 ctx.fillStyle = "red";
