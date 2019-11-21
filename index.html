@@ -50,6 +50,10 @@
             var PlayerYstartY = 929;
             var px;
             var py;
+            //Eventually take this out
+            px = PlayerXstartX;
+            py = PlayerXstartY;
+            //
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
             var width = 960;
@@ -66,7 +70,8 @@
             var playerColour;
             var Xcolour = "red";
             var Ycolour = "blue";
-            
+
+            /*
             function createPlayers() {
                 if ((xTeamSize < 3) && (xTeamSize != 3)) {
                     //The player will be xTeam
@@ -100,10 +105,9 @@
                     px = PlayerYstartX;
                     py = PlayerYstartY;
                 }
-                update();
             }
 
-            
+            */
             var platforms = {
                 start : function() {
                     //making the platforms
@@ -148,7 +152,7 @@
                             py = PlayerYstartY;
                             px = PlayerYstartX;
                         }
-                        py = height - pheight;
+                        //py = height - pheight;
                         player.jumping = false;
                         
                     } else if (py <=0){
@@ -296,7 +300,8 @@
             });    
                 
             window.addEventListener("load", function(){
-                createPlayers();
+                //createPlayers();
+                update();
             });   
                 
         </script>
