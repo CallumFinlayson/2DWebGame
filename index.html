@@ -73,8 +73,6 @@
             var onPlatform = false;
             flagCarryingByX = false;
             flagCarryingByY = false;
-
-
             /*
             function createPlayers() {
                 if ((xTeamSize < 3) && (xTeamSize != 3)) {
@@ -158,7 +156,6 @@
                     //end game
                 }
             }
-
             function isCarryingFlagplayerOnPlatform() {
                 //red base
                 if (((px>=0)&&(px<=100))&&((py>=209)&&(py<=250))) { //ctx.fillRect(0,240,100,10);
@@ -217,7 +214,6 @@
                     onPlatform = false;
                 }
             }
-
             function isPlayerOnPlatform() {
                 //red base
                 if (((px>=0)&&(px<=100))&&((py>=234)&&(py<=250))) { //ctx.fillRect(0,240,100,10);
@@ -296,7 +292,6 @@
                     isPlayerOnPlatform();
                 }
             }
-
             function updatePlayer() {
                 //player size
                 if (isPlayerX) {
@@ -320,7 +315,6 @@
                     Ycolour = "red";
                 }
             }
-
             //game functionallity
             function update() {
                 timer();
@@ -388,7 +382,14 @@
                 updatePlayer();
                 playerOnPlatform();
                 ctx.clearRect(0,0,width,height);
-                ctx.fillStyle = "red";
+
+                var colour;
+                if (isPlayerX) {
+                    colour = Xcolour;
+                } else if (isPlayerY) {
+                    colour = Ycolour;
+                }
+                ctx.fillStyle = colour;
                 ctx.fillRect(px, py, pwidth, pheight);
                 platforms.start();
                 requestAnimationFrame(update);
