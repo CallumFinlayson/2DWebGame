@@ -55,28 +55,19 @@
             //
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
-
             var width = 960;
             var height = 640;
-
             canvas.width = width;
             canvas.height = height;
-
             var keys = [];
-
             var gravity = 1;
             var jumping = false;
-
-
             var xTeamSize;
             var yTeamSize;
-
             var xScoreLabel; //Text value
             var yScoreLabel; //Text value
-
             var xTeamScore = 0; //Int value
             var yTeamScore = 0; //Int value
-
             //must be sent to false to begin only true now to test code
             var isPlayerX = true;
             var isPlayerY = false;
@@ -88,12 +79,10 @@
             flagCarryingByY = false;
             var playerSpeed;
             var jumpSpeed = 4;
-
             /*
             function startGame() {
                 xScoreLabel = new component("30px", "Consolas", "black", 10, 10, "text");
                 yScoreLabel = new component("30px", "Consolas", "black", 760, 10, "text");
-
                 update();
             }
             
@@ -317,7 +306,6 @@
                     isPlayerOnPlatform();
                 }
             }
-
             function updatePlayer() {
                 //player size
                 if (isPlayerX) {
@@ -341,7 +329,6 @@
                     Ycolour = "red";
                 }
             }
-
             function updateScore() {
                 if (isPlayerX && flagCarryingByX) {
                     xTeamScore = xTeamScore + 1;
@@ -356,7 +343,6 @@
                     colour = "blue"
                 }
             }
-
             function jump() {
                 if (onPlatform) {
                     py = py -140;
@@ -431,7 +417,6 @@
                 updatePlayer();
                 playerOnPlatform();
                 ctx.clearRect(0,0,width,height);
-
                 var colour;
                 if (isPlayerX) {
                     colour = Xcolour;
@@ -440,11 +425,14 @@
                 }
                 ctx.fillStyle = colour;
                 ctx.fillRect(px, py, pwidth, pheight);
+                xScoreLabel = "X Team Score: " + xTeamScore;
+                xScoreLabel.fontsize = "30px";
+                yScoreLabel = "Y Team Score: " + yTeamScore;
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "black";
+                ctx.fillText(xScoreLabel, 10,40);
+                ctx.fillText(yScoreLabel, 700, 40);
                 platforms.start();
-
-                xScoreLabel.text = "X Team Score: " + xTeamScore;
-                yScoreLabel.text = "Y Team Score: " + yTeamScore;
-
                 requestAnimationFrame(update);
             }
             
