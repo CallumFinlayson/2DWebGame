@@ -45,8 +45,8 @@
             var pheight = 5;
             var PlayerXstartX = 26;
             var PlayerXstartY = 234;
-            var PlayerYstartX = 26;
-            var PlayerYstartY = 929;
+            var PlayerYstartX = 929;
+            var PlayerYstartY = 234;
             var px;
             var py;
             
@@ -67,8 +67,8 @@
             var xTeamScore = 0; //Int value
             var yTeamScore = 0; //Int value
             //must be sent to false to begin only true now to test code
-            var isPlayerX = true;
-            var isPlayerY = false;
+            var isPlayerX = false;
+            var isPlayerY = true;
             var playerColour;
             var Xcolour = "red";
             var Ycolour = "blue";
@@ -78,15 +78,15 @@
             var playerSpeed;
             var jumpSpeed = 4;
             
-            if (isPlayerX) {
-                px = PlayerXstartX;
-                py = PlayerXstartY;
-                //playerColour = Xcolour;
-            }
             if (isPlayerY) {
                 px = PlayerYstartX;
                 py = PlayerYstartY;
                 //playerColour = Ycolour;
+            }
+            if (isPlayerX) {
+                px = PlayerXstartX;
+                py = PlayerXstartY;
+                //playerColour = Xcolour;
             }
             
 
@@ -163,8 +163,7 @@
                     ctx.fillRect(0,630,960,10);
                 }
             }
-            //15000
-            var time = 10000;
+            var time = 15000;
             function timer() {
                 setTimeout(function(){
                     var timerDiv = document.getElementById("timer");
@@ -178,7 +177,6 @@
             }
             function closeGame() {
                 open("endpage.html");
-                
             }
             function checkTime() {
                 if (time <= 0) {
