@@ -64,12 +64,19 @@
 
             var keys = [];
 
-            var gravity = 0.8;
+            var gravity = 1;
             var jumping = false;
 
 
             var xTeamSize;
             var yTeamSize;
+
+            var xScoreLabel; //Text value
+            var yScoreLabel; //Text value
+
+            var xTeamScore = 0; //Int value
+            var yTeamScore = 0; //Int value
+
             //must be sent to false to begin only true now to test code
             var isPlayerX = true;
             var isPlayerY = false;
@@ -81,7 +88,15 @@
             flagCarryingByY = false;
             var playerSpeed;
             var jumpSpeed = 4;
+
             /*
+            function startGame() {
+                xScoreLabel = new component("30px", "Consolas", "black", 10, 10, "text");
+                yScoreLabel = new component("30px", "Consolas", "black", 760, 10, "text");
+
+                update();
+            }
+            
             function createPlayers() {
                 if ((xTeamSize < 3) && (xTeamSize != 3)) {
                     //The player will be xTeam
@@ -170,12 +185,14 @@
                     jumping = false;
                     py = 209;
                     onPlatform = true;
+                    updateScore();
                 }
                 //blue base
                 else if (((px>=860)&&(px<=960))&&((py>=209)&&(py<=250))) { //ctx.fillRect(860,240,100,10);
                     jumping = false;
                     py = 209;
                     onPlatform = true;
+                    updateScore();
                 }
                 //black platforms
                 else if (((px>=140)&&(px<=215))&&((py>=309)&&(py<=350))) { //ctx.fillRect(140,340,75,10);
@@ -300,6 +317,7 @@
                     isPlayerOnPlatform();
                 }
             }
+
             function updatePlayer() {
                 //player size
                 if (isPlayerX) {
@@ -323,7 +341,7 @@
                     Ycolour = "red";
                 }
             }
-          
+
             function updateScore() {
                 if (isPlayerX && flagCarryingByX) {
                     xTeamScore = xTeamScore + 1;
@@ -355,8 +373,6 @@
                         jump();
                         jumping = true;
                     }
-
-                    
                 }
                 if (keys[39]) {
                     // right arrow
@@ -425,6 +441,10 @@
                 ctx.fillStyle = colour;
                 ctx.fillRect(px, py, pwidth, pheight);
                 platforms.start();
+
+                xScoreLabel.text = "X Team Score: " + xTeamScore;
+                yScoreLabel.text = "Y Team Score: " + yTeamScore;
+
                 requestAnimationFrame(update);
             }
             
@@ -442,11 +462,8 @@
             });   
                 
         </script>
-    <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">My Team Score:
-    <script type="text/javascript">document.write(xTeampoint)</script> </h4> 
-            
-    <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">Opponent Team Score: 
-    <script type="text/javascript">document.write(yTeampoint)</script></h4>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">My Team Score: </p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">Opponent Team Score: </p>
     <p> </p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Game Instructions:</p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">up arrow to jump</p>
