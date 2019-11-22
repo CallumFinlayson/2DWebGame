@@ -49,9 +49,7 @@
             var PlayerYstartY = 929;
             var px;
             var py;
-            //Eventually take this out
-            px = PlayerXstartX;
-            py = PlayerXstartY;
+            
             //
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
@@ -79,6 +77,19 @@
             flagCarryingByY = false;
             var playerSpeed;
             var jumpSpeed = 4;
+            
+            if (isPlayerX) {
+                px = PlayerXstartX;
+                py = PlayerXstartY;
+                //playerColour = Xcolour;
+            }
+            if (isPlayerY) {
+                px = PlayerYstartX;
+                py = PlayerYstartY;
+                //playerColour = Ycolour;
+            }
+            
+
             /*
             function startGame() {
                 xScoreLabel = new component("30px", "Consolas", "black", 10, 10, "text");
@@ -461,7 +472,7 @@
                 ctx.font = "30px Arial";
                 ctx.fillStyle = "black";
                 ctx.fillText(xScoreLabel, 10,40);
-                ctx.fillText(yScoreLabel, 700, 40);
+                ctx.fillText(yScoreLabel, 650, 40);
                 platforms.start();
                 requestAnimationFrame(update);
             }
