@@ -11,18 +11,38 @@
             background-color: white;
             color: red;
         }
+        button:active {
+            background-color: green;
+            color: black;
+            border: 2px solid black;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        #onmousedown {
+            display: flex; justify-content: center;
+        }
     </style>
 </head>
-<body style= "background-color: #B0C4DE";>
+<body style= "background-color: rgb(142, 191, 255)";>
     <script>
         
         var team; // x or y
         var xScore;
         var yScore;
         var text;
+        function restart() {  //Start a new game
+            
+        }
 
-        function restart() {
-            //start new game
+        function Logout() {
+            <a href> "index.html" </a>
         }
         
         function text() {
@@ -40,10 +60,14 @@
         }
     
     </script>
-    <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 70px;">CAPTURE THE FLAG!</h1>
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 30px;">text()</p>
+    <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 70px;">-Capture the Flag-</h1>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 30px;"></p>
+    <div class = onmousedown id = "onmousedown">
     <button onmousedown="restart()"; style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">START NEW GAME</button>
-    <p></p>
-    <button onmousedown="restart()"; style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">Log Out</button>
+    </div>
+    <p> </p>
+    <div class = onmousedown id = "onmousedown">
+    <button onmousedown1="Logout()"; style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">Log Out</button>
+    </div>
 </body>
 </html>
