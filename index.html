@@ -153,7 +153,7 @@
                 }
             }
             //15000
-            var time = 200;
+            var time = 300000;
             function timer() {
                 setTimeout(function(){
                     var timerDiv = document.getElementById("timer");
@@ -368,10 +368,17 @@
             }
             function jump() {
                 if (onPlatform) {
-                    py = py -140;
-                    updatePlayer();
+                    py = py - 10;
+                    gravity = -5;
+                    setTimeout(Fetchdata, 300);
+                    updatePlayer();         
                 }
             }
+
+            function Fetchdata() {
+                gravity = 1;
+            }            
+
             //game functionallity
             function update() {
                 timer();
