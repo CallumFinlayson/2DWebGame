@@ -6,27 +6,55 @@
             background-color: red;
             color: black;
             border: 2px solid red;
+            text-align: center;
         }
         button:hover {
             background-color: white;
             color: red;
         }
+        button:active {
+            background-color: green;
+            color: black;
+            border: 2px solid black;
+        }
+
+        p {
+            text-align: center
+        }
+
+        h1 {
+            text-align: center
+        }
+
+        #onmousedown {
+            display: flex; justify-content: center;
+        }
+
+
     </style>
 </head>
-<body style= "background-color: #B0C4DE";>
+<body style= "background-color: rgb(142, 191, 255)";>
     <script>
     
-    function start() {
-        //start game
+    function start() {    // Start a new game
+        
     }
-    
+
     </script>
-    <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 70px;">CAPTURE THE FLAG!</h1>
-    <button onmousedown="start()"; style="font-size: 100px; font-family: Arial, Helvetica, sans-serif;">START</button>
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 50px;">Game Instructions:</p>
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 30px;">up arrow to jump</p>
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 30px;">left right arrows to move left and right</p>
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 30px;">space to freeze other players</p>
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 50px;">CLICK START TO START GAME</p>
+
+    <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 70px;">-Capture the Flag-</h1>
+    <div class = onmousedown id="onmousedown">
+    <button onmousedown="start()"; style="font-size: 100px; font-family: Arial, Helvetica, sans-serif;">START</button> 
+    </div>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 30px;">Click start button to begin game</p>
+    
+
+
+
+    <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 40px;">Game Instructions:</h1>    
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;">-Up arrow to jump</p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;">-Left right arrows to move left and right</p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;">-Space to freeze other players</p>
+    
 </body>
 </html>
