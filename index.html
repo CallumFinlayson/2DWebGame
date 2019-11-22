@@ -174,14 +174,18 @@
                     jumping = false;
                     py = 209;
                     onPlatform = true;
-                    updateScore();
+                    if (isPlayerX) {
+                        updateScore();
+                    } 
                 }
                 //blue base
                 else if (((px>=860)&&(px<=960))&&((py>=209)&&(py<=250))) { //ctx.fillRect(860,240,100,10);
                     jumping = false;
                     py = 209;
                     onPlatform = true;
-                    updateScore();
+                    if (isPlayerY) {
+                        updateScore();
+                    }
                 }
                 //black platforms
                 else if (((px>=140)&&(px<=215))&&((py>=309)&&(py<=350))) { //ctx.fillRect(140,340,75,10);
@@ -329,20 +333,32 @@
                     Ycolour = "red";
                 }
             }
+
+            function scorePoint() {
+                if (isPlayerX) {
+                    flagCarryingByX = false;
+                    xTeamScore = xTeamScore + 1;
+                } else if (isPlayerY) {
+                    flagCarryingByY = false;
+                    yTeamScore = yTeamScore + 1;
+                }
+            }
             function updateScore() {
                 if (isPlayerX && flagCarryingByX) {
-                    xTeamScore = xTeamScore + 1;
+                    scorePoint();
                     pwidth = 5;
                     pheight = 5;
                     colour = "red"
+                    Xcolour = colour;
                 } 
                 else if (isPlayerY && flagCarryingByY) {
-                    yTeamScore = yTeamScore + 1;
+                    scorePoint();
                     pwidth = 5;
                     pheight = 5;
                     colour = "blue"
                 }
             }
+
             function jump() {
                 if (onPlatform) {
                     py = py -140;
@@ -450,12 +466,11 @@
             });   
                 
         </script>
-    <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">My Team Score:
-    <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 15px;">Opponent Team Score: 
-    <p> </p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Game Instructions:</p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">up arrow to jump</p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">left right arrows to move left and right</p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">space to freeze other players</p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">The floor is lava!! (Don't fall)</p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">GOOD LUCK</p>
     </body>
 </html>
