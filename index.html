@@ -152,22 +152,29 @@
                     ctx.fillRect(0,630,960,10);
                 }
             }
-            
-            var time = 15000;
+            //15000
+            var time = 100;
             function timer() {
                 setTimeout(function(){
                     var timerDiv = document.getElementById("timer");
-                    time = time-1;
+                    if (time >= 1) {
+                        time = time-1;
+                    }
                     timerDiv.innerHTML = time;
+                    checkTime();
                     //timer();
                 }, 1000)
             }
+
+            function closeGame() {
+                open("endpage.html");
+                close("index.html");
+            }
+
             function checkTime() {
                 if (time <= 0) {
                     // end game
-                    open("endpage.html");
-                    close("index.html");
-                    
+                    closeGame();
                 }
             }
             function isCarryingFlagplayerOnPlatform() {
