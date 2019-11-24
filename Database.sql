@@ -1,6 +1,6 @@
-CREATE TABLE   `Login` (
+CREATE TABLE   `login` (
   `personID` int(6) NOT NULL UNIQUE AUTO_INCREMENT,
-  `Username` varchar(15) NOT NULL,
-  `Password` varchar(20) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(20) NOT NULL,
   PRIMARY KEY(`personID`)
  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
