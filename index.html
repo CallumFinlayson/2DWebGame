@@ -78,6 +78,12 @@
             var playerSpeed;
             var jumpSpeed = 4;
             
+            /*
+            socket.emit('new player');
+            setInterval(function() {
+                socket.emit('movement', movement);
+            }, 1000 / 60; */
+            
             if (isPlayerY) {
                 px = PlayerYstartX;
                 py = PlayerYstartY;
@@ -89,7 +95,6 @@
                 //playerColour = Xcolour;
             }
             
-
             /*
             function startGame() {
                 xScoreLabel = new component("30px", "Consolas", "black", 10, 10, "text");
@@ -497,3 +502,4 @@
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">GOOD LUCK</p>
     </body>
 </html>
+
