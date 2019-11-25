@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Capture The Flag Game!</title> 
+        <title>Capture The Glag Game!</title> 
         <style>
             #canvas {
                 border: 4px solid black;
@@ -40,7 +40,6 @@
             })();
     
             //variables
-            //var player;
             var pwidth = 5;
             var pheight = 5;
             var PlayerXstartX = 26;
@@ -50,7 +49,6 @@
             var px;
             var py;
             
-            //
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
             var width = 960;
@@ -67,23 +65,32 @@
             var xTeamScore = 0; //Int value
             var yTeamScore = 0; //Int value
             //must be sent to false to begin only true now to test code
-            var isPlayerX = false;
-            var isPlayerY = true;
+            var isPlayerX = true;
+            var isPlayerY = false;
             var playerColour;
             var Xcolour = "red";
             var Ycolour = "blue";
             var onPlatform = false;
-            flagCarryingByX = false;
-            flagCarryingByY = false;
+            var flagCarryingByX = false;
+            var flagCarryingByY = false;
             var playerSpeed;
             var jumpSpeed = 4;
-            
+
             /*
-            socket.emit('new player');
-            setInterval(function() {
-                socket.emit('movement', movement);
-            }, 1000 / 60; */
-            
+            var players = {};
+            io.on('connection', function(socket) {
+                socket.on('new player', function() {
+                    players[socket.id] = {
+                        x : 480,
+                        y : 490
+                    }
+                });
+                socket.on
+            })
+            */
+
+
+
             if (isPlayerY) {
                 px = PlayerYstartX;
                 py = PlayerYstartY;
@@ -95,43 +102,6 @@
                 //playerColour = Xcolour;
             }
             
-            /*
-            function startGame() {
-                xScoreLabel = new component("30px", "Consolas", "black", 10, 10, "text");
-                yScoreLabel = new component("30px", "Consolas", "black", 760, 10, "text");
-                update();
-            }
-            
-            function createPlayers() {
-                if ((xTeamSize < 3) && (xTeamSize != 3)) {
-                    //The player will be xTeam
-                    xTeamSize = xTeamSize + 1;
-                    PlayerXstartY = PlayerXstartY + 6;
-                    isPlayerX = true;
-                    createPlayer();
-                } else if ((yTeamSize < 3) && (yTeamSize != 3)) {
-                    //The player will be yTeam
-                    yTeamSize = yTeamSize + 1;
-                    PlayerYstartY = PlayerYstartY - 6;
-                    isPlayerY = true;
-                    createPlayer();
-                } else if ((xTeamSize == 3) && (yTeamSize == 3)) {
-                    //The teams are full stop calling this function and adding players
-                    update();
-                }
-            }
-            function createPlayer() {
-                if (isPlayerX) {
-                    playerColour = Xcolour;
-                    px = PlayerXstartX;
-                    py = PlayerXstartY;
-                } else if (isPlayerY) {
-                    playerColour = Ycolour;
-                    px = PlayerYstartX;
-                    py = PlayerYstartY;
-                }
-            }
-            */
             var platforms = {
                 start : function() {
                     //making the platforms
@@ -490,6 +460,7 @@
                 
             window.addEventListener("load", function(){
                 //createPlayers();
+
                 update();
             });   
                 
@@ -502,4 +473,3 @@
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;">GOOD LUCK</p>
     </body>
 </html>
-
